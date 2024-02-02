@@ -1,48 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="utf-8">
-    <title>My three.js app</title>
-    <style>
-        body { margin: 0; }
-    </style>
-</head>
-<body>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/0.161.0/three.module.js"></script>
-    <script type="module" src="./OBJLoader.js"></script>
-    <script type="module" src="./OrbitControls.js"></script>
-    <script type="module">
-        const scene = new THREE.Scene();
-        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-        const renderer = new THREE.WebGLRenderer();
-        renderer.setSize(window.innerWidth, window.innerHeight);
-        document.body.appendChild(renderer.domElement);
-
-        const loader = new THREE.OBJLoader();
-        loader.load('https://raw.githubusercontent.com/berluner/mountainslope/main/wingies.obj', (object) => {
-            scene.add(object);
-        });
-
-        const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
-        scene.add(ambientLight);
-
-        const directionalLight = new THREE.DirectionalLight(0xffffff, 0.5);
-        scene.add(directionalLight);
-
-        // Set up user interaction for rotation
-        const controls = new THREE.OrbitControls(camera, renderer.domElement);
-
-        // Set camera position
-        camera.position.z = 5;
-
-        // Render loop
-        const animate = () => {
-            requestAnimationFrame(animate);
-            controls.update();
-            renderer.render(scene, camera);
-        };
-
-        animate();
-    </script>
-</body>
+	<head>
+		<meta charset="utf-8">
+		<title>mountainslope</title>
+		<style>
+			body { margin: 0; }
+		</style>
+	</head>
+	<body>
+		<script type="module" src="/main.js"></script>
+	</body>
 </html>
